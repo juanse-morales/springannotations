@@ -1,8 +1,20 @@
 package com.dca.pruebaannotations;
 
+import org.springframework.beans.factory.annotation.Value;
+
+/**
+ * @author Adminsitrador
+ *
+ */
 public class DirectorFinanciero implements Empleados {
 
 	private CreacionInformeFinanciero informeFinanciero;
+	
+	@Value("${email}")
+	private String email;
+	
+	@Value("${nombreEmpresa}")
+	private String nombreEmpresa;
 	
 	public DirectorFinanciero(CreacionInformeFinanciero informeFinanciero) {
 		this.informeFinanciero = informeFinanciero;
@@ -18,4 +30,11 @@ public class DirectorFinanciero implements Empleados {
 		return this.informeFinanciero.getInformeFinanciero();
 	}
 
+	public String getEmail() {
+		return email;
+	}
+
+	public String getNombreEmpresa() {
+		return nombreEmpresa;
+	}
 }
